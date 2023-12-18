@@ -1,4 +1,3 @@
 matplotlib
 folium
 folium_static
-streamlit_folium
