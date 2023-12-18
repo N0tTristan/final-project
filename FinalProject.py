@@ -119,7 +119,8 @@ def main():
         st.markdown(htmlLocations, unsafe_allow_html = True)
 
         folium_map_html = my_map.get_root().render()  # publishes the map
-        st.markdown(folium_map_html, unsafe_allow_html=True)
+        
+        st.components.v1.html(folium_map_html, height=600, scrolling=True)
 
         st.write("As you can see, there are very few active dispensaries in Boston however many that used to exist!")
         create_bar_plot(df_full, "License Status")  # calls function to build bar graph
