@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import folium
-from streamlit_folium import folium_static
+# from streamlit_folium import folium_static
 
 
 def load_data(filename):
@@ -118,7 +118,8 @@ def main():
         htmlLocations = '''<h3 style="font-style: italic; color: darkslategrey;">Locations of Dispenaries</h3>'''
         st.markdown(htmlLocations, unsafe_allow_html = True)
 
-        folium_static(my_map)  # publishes the map
+        folium_map_html = my_map.get_root().render()  # publishes the map
+        st.markdown(folium_map_html, unsafe_allow_html=True)
 
         st.write("As you can see, there are very few active dispensaries in Boston however many that used to exist!")
         create_bar_plot(df_full, "License Status")  # calls function to build bar graph
